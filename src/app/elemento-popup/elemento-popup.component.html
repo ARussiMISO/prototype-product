@@ -1,0 +1,79 @@
+<div class="container">
+  <form [formGroup]="form">
+    <h2 mat-dialog-title>Agregar elemento</h2>
+    <div fxLayout="column" fxLayoutAlign="space-evenly center">
+
+      <mat-dialog-content>
+        <div fxLayout="column" fxLayoutAlign="start none">
+
+          <label class="label-input" for="tipo">Tipo</label>
+          <select formControlName="tipo" id="tipo">
+            <option value="" disabled selected hidden>
+              Seleccionar opción
+            </option>
+            <option *ngFor="let tipo of tipos " [value]="tipo">
+              {{ tipo }}
+            </option>
+          </select>
+          <div class="input-invalid">
+            <p class="p-warn-required"
+              *ngIf="form.get('tipo')?.touched && form.get('tipo')?.invalid && form.get('tipo')?.errors?.['required']">
+              Campo obligatorio</p>
+          </div>
+          <br />
+          <label class="label-input" for="alto">Alto</label>
+          <input class="input-disabled " id="alto" name="alto" type="number" formControlName="alto">
+          <div class="input-invalid">
+            <p class="p-warn-required"
+              *ngIf="form.get('alto')?.touched && form.get('alto')?.invalid && form.get('alto')?.errors?.['required']">
+              Campo obligatorio</p>
+            <p class="p-warn-required"
+              *ngIf="form.get('alto')?.touched && form.get('alto')?.invalid && (form.get('alto')?.errors?.['max'] || form.get('alto')?.errors?.['min'] )">
+              Número entre 1 y 300</p>
+          </div>
+          <br />
+          <label class="label-input" for="ancho">Ancho</label>
+          <input class="input-disabled " id="ancho" name="ancho" type="number" formControlName="ancho">
+          <div class="input-invalid">
+            <p class="p-warn-required"
+              *ngIf="form.get('ancho')?.touched && form.get('ancho')?.invalid && form.get('ancho')?.errors?.['required']">
+              Campo obligatorio</p>
+            <p class="p-warn-required"
+              *ngIf="form.get('ancho')?.touched && form.get('ancho')?.invalid && (form.get('ancho')?.errors?.['max'] || form.get('ancho')?.errors?.['min'] )">
+              Número entre 1 y 300</p>
+          </div>
+          <br />
+          <label class="label-input" for="profundidad">Ancho</label>
+          <input class="input-disabled " id="profundidad" name="profundidad" type="number"
+            formControlName="profundidad">
+          <div class="input-invalid">
+            <p class="p-warn-required"
+              *ngIf="form.get('profundidad')?.touched && form.get('profundidad')?.invalid && form.get('profundidad')?.errors?.['required']">
+              Campo obligatorio</p>
+            <p class="p-warn-required"
+              *ngIf="form.get('profundidad')?.touched && form.get('profundidad')?.invalid && (form.get('profundidad')?.errors?.['max'] || form.get('profundidad')?.errors?.['min'] )">
+              Número entre 1 y 300</p>
+          </div>
+          <br />
+          <label class="label-input" for="cantidad">Cantidad</label>
+          <input class="input-disabled " id="cantidad" name="cantidad" type="number"
+            formControlName="cantidad">
+          <div class="input-invalid">
+            <p class="p-warn-required"
+              *ngIf="form.get('cantidad')?.touched && form.get('cantidad')?.invalid && form.get('cantidad')?.errors?.['required']">
+              Campo obligatorio</p>
+            <p class="p-warn-required"
+              *ngIf="form.get('cantidad')?.touched && form.get('cantidad')?.invalid && (form.get('cantidad')?.errors?.['max'] || form.get('cantidad')?.errors?.['min'] )">
+              Número entre 1 y 300</p>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-actions class="tabla-popup">
+        <button mat-button (click)="agregarElemento()" [disabled]="form.invalid" cdkFocusInitial>
+          Agregar
+        </button>
+        <button mat-button (click)="onCancel()">Cancelar</button>
+      </mat-dialog-actions>
+    </div>
+  </form>
+</div>

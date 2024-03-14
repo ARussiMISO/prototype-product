@@ -22,6 +22,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSortModule } from '@angular/material/sort';
 import {MatMenuModule} from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const material = [
   CommonModule,
@@ -49,7 +50,9 @@ const material = [
   MatSortModule,
   MatMenuModule,
   HttpClientModule,
-  MatRippleModule];
+  MatRippleModule,
+  MatTooltipModule
+];
 
 @NgModule({
   imports: [material],

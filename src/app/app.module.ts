@@ -11,6 +11,7 @@ import { CotizadorComponent } from './cotizador/cotizador.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-encontrada.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ElementoPopupComponent } from './elemento-popup/elemento-popup.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ToastrModule } from 'ngx-toastr';
     ContactoComponent,
     CotizadorComponent,
     InformacionComponent,
-    PaginaNoEncontradaComponent
+    PaginaNoEncontradaComponent,
+    ElementoPopupComponent
   ],
   imports: [
     BrowserModule,

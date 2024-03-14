@@ -82,12 +82,21 @@
           {{ elemento.profundidad }}
         </td>
       </ng-container>
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Cantidad
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          {{ elemento.cantidad }}
+        </td>
+      </ng-container>
       <ng-container matColumnDef="accion">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let elemento">
           <div fxLayout="row">
             <a><mat-icon matTooltip="Modificar" matTooltipPosition="above"
                 (click)="modificarElemento(elemento)">edit</mat-icon></a>
+            &nbsp;&nbsp;&nbsp;
             <a><mat-icon matTooltip="Eliminar" matTooltipPosition="above"
                 (click)="eliminarElemento(elemento)">delete</mat-icon></a>
           </div>
@@ -100,7 +109,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
       <tr *matNoDataRow>
-        <td class="mat-cell" colspan="5">
+        <td class="mat-cell" colspan="6">
           No hay datos.
         </td>
       </tr>
