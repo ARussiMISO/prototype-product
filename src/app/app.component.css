@@ -9,3 +9,7 @@
   text-align: center;
   color: #FFFF;
 }
+
+main{
+  overflow: scroll;
+}

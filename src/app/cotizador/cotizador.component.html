@@ -1,1 +1,114 @@
-<p>cotizador works!</p>
+<h1>Cotizador</h1>
+<div fxLayout="column" class="container-inputs" fxLayoutAlign="start none">
+  <p>Esta herramienta toma los valores de altura, ancho y profundidad de
+    los elementos que vas a trasladar, luego realizamos un cálculo de cubicaje aproximado
+    para así determinar aproximadamente un tamaño de vehículo recomendado y generar un costo
+    aproximado de tu servicio según la lista de valores que se manejan típicamente.
+  </p>
+  <p>
+    Antes de usar la herramienta te pedimos que por favor prestes atención a las siguientes indicaciones:
+  </p>
+  <ol>
+    <div fxLayout="row" fxLayoutAlign="space-evenly none">
+      <li>
+        Se reciben 3 medidas por elemento éstas son ancho, alto y profundidad, ejemplo:
+        <br />
+        <img src="assets/imagenes/EjemploMedidas.PNG" alt="Ejemplo medidas">
+      </li>
+      <div fxLayout="column" style="max-width: 400px;">
+        <li>
+          Las medidas se reciben solo en centímetros (cm)
+        </li>
+        <li>
+          El valor del servicio es estimado de acuerdo a los valores típicos existentes en el mercado. Para tener una
+          medida más precisa deberás seleccionar el prestador de servicio que más se adecúe a tus necesidades.
+        </li>
+        <li>
+          Debes dar clic en Agregar elemento, esto desplegará popup que solicitará una información del elemento en
+          cuestión y posteriormente al dar clic en agregar se adicionará a la tabla que se encuentra en la zona
+          inferior.
+        </li>
+        <li>
+          Para realizar el cálculo debes dar clic en el botón Cotizar que se encuentra en la parte inferior de la tabla.
+        </li>
+      </div>
+    </div>
+  </ol>
+  <br />
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button class="submit-button button-warn" (click)="agregarElemento()">
+      Agregar elemento
+    </button>
+    &nbsp;&nbsp;&nbsp;
+    <button class="submit-button button-primary" (click)="cotizar()">
+      Cotizar
+    </button>
+
+  </div>
+
+  <br />
+  <div fxLayout="column" fxLayoutAlign="space-around none" class="container-inputs" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort
+      aria-describedby="Tabla que muestra las transacciones disponibles">
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Tipo
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          {{ elemento.tipo }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="alto">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Alto
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          {{ elemento.alto }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="ancho">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Ancho
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          {{ elemento.ancho }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="profundidad">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Profundidad
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          {{ elemento.profundidad }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="accion">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let elemento">
+          <div fxLayout="row">
+            <a><mat-icon matTooltip="Modificar" matTooltipPosition="above"
+                (click)="modificarElemento(elemento)">edit</mat-icon></a>
+            <a><mat-icon matTooltip="Eliminar" matTooltipPosition="above"
+                (click)="eliminarElemento(elemento)">delete</mat-icon></a>
+          </div>
+
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr *matNoDataRow>
+        <td class="mat-cell" colspan="5">
+          No hay datos.
+        </td>
+      </tr>
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+      aria-label="Selector de páginas de transacciones">
+    </mat-paginator>
+  </div>
+  <br/>
+
+</div>

@@ -288,12 +288,23 @@ $altTheme: (
   height: 32px;
 }
 
+button{
+  cursor: pointer;
+}
 
 .button-primary {
   background: #003e6c;
-  border-radius: 5px;
+  color: white;
+  border: none;
+  font-size: 12px;
+  height: 39px;
   padding-left: 16px;
   padding-right: 16px;
+
+  &:hover{
+    background: #00284f;
+
+  }
 
 }
 
