@@ -1,0 +1,11 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-button:hover{
+  background-color: #00284f;
+}
+
+.flex-container{
+  text-align: center;
+  color: #FFFF;
+}

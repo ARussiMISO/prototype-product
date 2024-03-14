@@ -1,0 +1,50 @@
+<div style="height: 100vh">
+  <div fxLayout="column" fxFlexFill>
+    <mat-toolbar color="primary">
+      <button mat-button routerLink="bienvenida">
+        <mat-icon>home</mat-icon>
+        &nbsp;&nbsp;
+        <b style="font-size: large;">TeMudo</b>
+      </button>
+      <button mat-button routerLink="cotizador">
+        <b style="font-size: medium;">Cotizador</b>
+      </button>
+      <button mat-button routerLink="paginaNoEncontrada">
+        <b style="font-size: medium;">Reseñas</b>
+      </button>
+      <button mat-button routerLink="informacion">
+        <b style="font-size: medium;">Acerca de nosotros</b>
+      </button>
+      <span class="example-spacer"></span>
+      <button mat-button routerLink="contacto">
+        <mat-icon>contact_support</mat-icon>
+        &nbsp;&nbsp;
+        <b style="font-size: medium;">Contáctanos</b>
+      </button>
+
+    </mat-toolbar>
+    <main>
+      <div style="padding: 30px">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+    <footer>
+      <div style="height: 30px; padding: 20px">
+        <div class="flex-container" fxLayout="row" fxLayoutAlign="space-between center">
+          <div>
+            <p>
+              2024
+              Versión Prototipo 1.0.0
+            </p>
+          </div>
+          <div>
+            <p>
+              Creado por: Yosef Lozada, Diego Eslava y Alejandro Russi</p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>

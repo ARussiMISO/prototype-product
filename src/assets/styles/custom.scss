@@ -1,0 +1,790 @@
+/**
+* Generated theme by Material Theme Generator
+* https://materialtheme.arcsine.dev
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzAwM2U2YyIsIj9lcjwjYjNjNWQzIiwiO2VyPCMwMDI4NGZ$LCIlPmBePCM4YmI5ZGMiLCI~ZXI8I2RjZWFmNSIsIjtlcjwjNmVhMmNlfiwid2Fybj5gXjwjOTExYjI4IiwiP2VyPCNkZWJiYmYiLCI7ZXI8Izc0MTAxOH4sIj9UZXh0PCMzMzMzMzMiLCI~PTwjZjhmN2Y3IiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz50cnVlLCJ2ZXJzaW9uPjEzfQ==
+*/
+
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+
+// Fonts
+@import 'material-icons.scss';
+@import 'roboto.scss';
+
+$fontConfig: (
+  display-4: mat.define-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
+  display-3: mat.define-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
+  display-2: mat.define-typography-level(45px, 48px, 400, 'Roboto', 0.0000em),
+  display-1: mat.define-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
+  headline: mat.define-typography-level(24px, 32px, 400, 'Roboto', 0.0000em),
+  title: mat.define-typography-level(20px, 32px, 500, 'Roboto', 0.0075em),
+  subheading-2: mat.define-typography-level(16px, 28px, 400, 'Roboto', 0.0094em),
+  subheading-1: mat.define-typography-level(15px, 24px, 500, 'Roboto', 0.0067em),
+  body-2: mat.define-typography-level(14px, 24px, 500, 'Roboto', 0.0179em),
+  body-1: mat.define-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
+  button: mat.define-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
+  caption: mat.define-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
+  input: mat.define-typography-level(inherit, 1.125, 400, 'Roboto', 1.5px)
+);
+
+// Foreground Elements
+
+// Light Theme Text
+$dark-text: #333333;
+$dark-primary-text: rgba($dark-text, 0.87);
+$dark-accent-text: rgba($dark-primary-text, 0.54);
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);
+
+$mat-light-theme-foreground: (
+  base: #333333,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
+  disabled-button: rgba($dark-text, 0.26),
+  disabled-text: $dark-disabled-text,
+  elevation: black,
+  secondary-text: $dark-accent-text,
+  hint-text: $dark-disabled-text,
+  accent-text: $dark-accent-text,
+  icon: $dark-accent-text,
+  icons: $dark-accent-text,
+  text: $dark-primary-text,
+  slider-min: $dark-primary-text,
+  slider-off: rgba($dark-text, 0.26),
+  slider-off-active: $dark-disabled-text,
+);
+
+// Dark Theme text
+$light-text: #ffffff;
+$light-primary-text: $light-text;
+$light-accent-text: rgba($light-primary-text, 0.7);
+$light-disabled-text: rgba($light-primary-text, 0.5);
+$light-dividers: rgba($light-primary-text, 0.12);
+$light-focused: rgba($light-primary-text, 0.12);
+
+$mat-dark-theme-foreground: (
+  base: $light-text,
+  divider: $light-dividers,
+  dividers: $light-dividers,
+  disabled: $light-disabled-text,
+  disabled-button: rgba($light-text, 0.3),
+  disabled-text: $light-disabled-text,
+  elevation: black,
+  hint-text: $light-disabled-text,
+  secondary-text: $light-accent-text,
+  accent-text: $light-accent-text,
+  icon: $light-text,
+  icons: $light-text,
+  text: $light-text,
+  slider-min: $light-text,
+  slider-off: rgba($light-text, 0.3),
+  slider-off-active: rgba($light-text, 0.3),
+);
+
+// Background config
+// Light bg
+$light-background: #f8f7f7;
+$light-bg-darker-5: darken($light-background, 5%);
+$light-bg-darker-10: darken($light-background, 10%);
+$light-bg-darker-20: darken($light-background, 20%);
+$light-bg-darker-30: darken($light-background, 30%);
+$light-bg-lighter-5: lighten($light-background, 5%);
+$dark-bg-tooltip: lighten(#2c2c2c, 20%);
+$dark-bg-alpha-4: rgba(#2c2c2c, 0.04);
+$dark-bg-alpha-12: rgba(#2c2c2c, 0.12);
+
+$mat-light-theme-background: (
+  background: $light-background,
+  status-bar: $light-bg-darker-20,
+  app-bar: $light-bg-darker-5,
+  hover: $dark-bg-alpha-4,
+  card: $light-bg-lighter-5,
+  dialog: $light-bg-lighter-5,
+  tooltip: $dark-bg-tooltip,
+  disabled-button: $dark-bg-alpha-12,
+  raised-button: $light-bg-lighter-5,
+  focused-button: $dark-focused,
+  selected-button: $light-bg-darker-20,
+  selected-disabled-button: $light-bg-darker-30,
+  disabled-button-toggle: $light-bg-darker-10,
+  unselected-chip: $light-bg-darker-10,
+  disabled-list-option: $light-bg-darker-10,
+);
+
+// Dark bg
+$dark-background: #2c2c2c;
+$dark-bg-lighter-5: lighten($dark-background, 5%);
+$dark-bg-lighter-10: lighten($dark-background, 10%);
+$dark-bg-lighter-20: lighten($dark-background, 20%);
+$dark-bg-lighter-30: lighten($dark-background, 30%);
+$light-bg-alpha-4: rgba(#f8f7f7, 0.04);
+$light-bg-alpha-12: rgba(#f8f7f7, 0.12);
+
+// Background palette for dark themes.
+$mat-dark-theme-background: (
+  background: $dark-background,
+  status-bar: $dark-bg-lighter-20,
+  app-bar: $dark-bg-lighter-5,
+  hover: $light-bg-alpha-4,
+  card: $dark-bg-lighter-5,
+  dialog: $dark-bg-lighter-5,
+  tooltip: $dark-bg-lighter-20,
+  disabled-button: $light-bg-alpha-12,
+  raised-button: $dark-bg-lighter-5,
+  focused-button: $light-focused,
+  selected-button: $dark-bg-lighter-20,
+  selected-disabled-button: $dark-bg-lighter-30,
+  disabled-button-toggle: $dark-bg-lighter-10,
+  unselected-chip: $dark-bg-lighter-20,
+  disabled-list-option: $dark-bg-lighter-10,
+);
+
+// Compute font config
+@include mat.core($fontConfig);
+
+// Theme Config
+
+body {
+  --primary-color: #003e6c;
+  --primary-lighter-color: #b3c5d3;
+  --primary-darker-color: #00284f;
+  --text-primary-color: #{$light-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
+}
+
+$mat-primary: (
+  main: #003e6c,
+  lighter: #b3c5d3,
+  darker: #00284f,
+  200: #003e6c,
+  // For slide toggle,
+  contrast : (main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
+
+
+body {
+  --accent-color: #8bb9dc;
+  --accent-lighter-color: #dceaf5;
+  --accent-darker-color: #6ea2ce;
+  --text-accent-color: #{$dark-primary-text};
+  --text-accent-lighter-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$dark-primary-text};
+}
+
+$mat-accent: (
+  main: #8bb9dc,
+  lighter: #dceaf5,
+  darker: #6ea2ce,
+  200: #8bb9dc,
+  // For slide toggle,
+  contrast : (main: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $dark-primary-text,
+  )
+);
+$theme-accent: mat.define-palette($mat-accent, main, lighter, darker);
+
+
+body {
+  --warn-color: #911b28;
+  --warn-lighter-color: #debbbf;
+  --warn-darker-color: #741018;
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
+}
+
+$mat-warn: (
+  main: #911b28,
+  lighter: #debbbf,
+  darker: #741018,
+  200: #911b28,
+  // For slide toggle,
+  contrast : (main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-warn: mat.define-palette($mat-warn, main, lighter, darker);
+
+
+$theme: (
+  primary: $theme-primary,
+  accent: $theme-accent,
+  warn: $theme-warn,
+  is-dark: false,
+  foreground: $mat-light-theme-foreground,
+  background: $mat-light-theme-background,
+);
+$altTheme: (
+  primary: $theme-primary,
+  accent: $theme-accent,
+  warn: $theme-warn,
+  is-dark: true,
+  foreground: $mat-dark-theme-foreground,
+  background: $mat-dark-theme-background,
+);
+
+// Theme Init
+@include mat.all-component-themes($theme);
+
+.theme-alternate {
+  @include mat.all-component-themes($altTheme);
+}
+
+// Specific component overrides, pieces that are not in line with the general theming
+
+// Handle buttons appropriately, with respect to line-height
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  padding: 0 1.15em;
+  margin: 0 .65em;
+  min-width: 3em;
+  line-height: 36.4px
+}
+
+.mat-standard-chip {
+  padding: .5em .85em;
+  min-height: 2.5em;
+}
+
+.material-icons {
+  font-size: 24px;
+  font-family: 'Material Icons', 'Material Icons';
+
+  .mat-badge-content {
+    font-family: 'Roboto';
+  }
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.5em 0 0.5em 0;
+  border: 0px;
+  display: flex !important;
+  align-items: center !important;
+}
+
+
+.mat-form-field-wrapper {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 35px;
+}
+
+.mat-form-field-infix {
+  //border-top-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 32px;
+}
+
+
+.button-primary {
+  background: #003e6c;
+  border-radius: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+}
+
+.button-warn {
+  background: #911b28;
+  color: white;
+  border: none;
+  font-size: 12px;
+  height: 39px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+button:disabled {
+  color: white;
+  opacity: 56%;
+
+  &.button-warn:hover {
+    background: #911b28;
+  }
+}
+
+.button-warn:hover {
+  background: #741018;
+}
+
+h4 {
+  color: #707070;
+}
+
+h1 {
+  color: #444657;
+}
+
+.container-inputs {
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 15px;
+}
+
+.button-search {
+  border: 1px solid #8BB9DC;
+  height: 35px;
+  width: 35px;
+  padding: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.button-search:focus-visible {
+  border: 1px solid var(--accent-color);
+}
+
+.button-back {
+  border: 1px solid #022873;
+  color: #022873;
+  height: 39px;
+  font-size: 12px;
+  background: white;
+}
+
+.button-back:hover {
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+}
+
+.button-secondary {
+
+  border: 1px solid var(--accent-color);
+  color: white;
+  height: 39px;
+  font-size: 12px;
+  background: var(--accent-color);
+
+  &:hover{
+    border: 1px solid #66A3C8;
+    background: #66A3C8;
+  }
+}
+
+.icon-campo-busqueda-extra {
+  transition: 0.3s;
+  height: 17px;
+  width: 17px;
+  padding: 9px;
+}
+
+.icon-campo-busqueda-extra:hover {
+  transform: scale(1.1);
+  animation-duration: 0.3s;
+}
+
+input {
+  height: 31px;
+  border: 1px solid #00000029;
+  padding-left: 5px;
+  width: 175px;
+  color: #707070;
+
+}
+
+
+.input-entrada {
+  padding-right: 263px;
+}
+
+.input-entrada-simple {
+  padding-right: 5px;
+}
+
+input:focus-visible {
+  height: 31px;
+  outline: 1px solid #8BB9DC;
+
+}
+
+.input-entrada:valid,
+.input-entrada-simple:valid {
+  border: 1px solid #00000029;
+  color: #707070;
+
+}
+
+.input-entrada.ng-invalid,
+input.ng-invalid,
+.input-entrada-simple.ng-invalid {
+  height: 31px;
+  outline: 1px solid #741018;
+
+}
+
+textarea {
+  width: 600px;
+  height: 30px;
+}
+
+p.p-warn-required {
+  color: var(--warn-color);
+  font-size: small;
+}
+
+.input-invalid {
+  padding-top: 5px;
+  height: 20px;
+  width: 100%;
+}
+
+.container-input-button {
+  position: relative;
+}
+
+
+.label-input,
+.label-input-info {
+  size: 16px;
+  color: #003E6C;
+  font-weight: bold;
+
+}
+
+.label-input::after {
+  content: " *";
+  color: #741018;
+}
+
+.input-disabled:disabled {
+  color: #707070;
+  border: none;
+  width: 350px;
+  background: none;
+  padding-right: 5px;
+
+}
+
+.input-disabled-entrada:disabled {
+  color: #707070;
+  border: none;
+  width: 220px;
+  background: none;
+  padding-right: 38px;
+  right: 0px;
+  position: absolute;
+
+}
+
+.input-date-picker {
+  padding-right: 40px;
+  width: 100px;
+}
+
+.input-date-picker.ng-invalid {
+  outline: 1px solid #741018;
+}
+
+.mat-datepicker-toggle {
+  right: 0px;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  padding-right: 5px;
+
+}
+
+.mat-icon-button {
+  width: 35px !important;
+  height: 35px !important;
+}
+
+
+
+select {
+  height: 31px;
+  border: 1px solid #00000029;
+  padding-left: 5px;
+  width: 175px;
+  color: #707070;
+
+}
+
+select.ng-invalid {
+  outline: 1px solid #741018;
+
+}
+
+select:focus-visible {
+  outline: 1px solid var(--accent-color);
+
+}
+
+option:disabled {
+  color: #E1E1E1;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-dialog-container-custom-tabla {
+  .mat-dialog-container {
+    padding: 24px !important;
+  }
+
+  .mat-sort-header-arrow {
+    color: #333333;
+  }
+
+  th.mat-header-cell,
+  .mat-paginator-container {
+    background: #D5DBE4;
+    color: #333333;
+
+  }
+
+  td.mat-cell {
+    color: var(--primary-color);
+  }
+
+  tr.activate {
+    background: #E6F2F6;
+  }
+
+  .mat-row .mat-cell {
+    border-bottom: 1px solid #E1E1E1;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .mat-row:hover .mat-cell {
+    border-color: currentColor;
+    justify-content: center;
+  }
+
+  .mat-form-field-infix {
+    display: flex !important;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 180px;
+
+  }
+
+
+}
+
+.cdk-overlay-backdrop.cdk-overlay-dark-backdrop.cdk-overlay-backdrop-showing {
+  background: var(--primary-color);
+  opacity: 60%;
+}
+
+.mat-dialog-container {
+  padding: 20px 0px 20px !important;
+  overflow: hidden !important;
+  background: #f3f7fa;
+}
+
+.mat-dialog-actions {
+  border-top: 1px solid #707070;
+}
+
+.overlay {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+
+}
+
+.mat-snack-bar-container {
+  color: rgb(85, 83, 83);
+  font-size: 14px;
+  display: flex !important;
+  align-items: center;
+  background: white;
+  padding: 0px !important;
+
+  &::before {
+    content: '';
+    position: relative !important;
+    height: 100%;
+    width: 7px;
+    background-color: var(--accent-color);
+    opacity: 1;
+    transition: all 200ms ease;
+  }
+}
+
+select {
+  height: 35px;
+}
+
+.select-search {
+  height: 35px;
+  width: 110px;
+  border: 1px solid #8BB9DC;
+  color: var(--primary-color);
+  background-color: #E4F2FB;
+
+  & option {
+    background-color: white;
+  }
+
+}
+
+
+
+.mat-snack-bar-container .titulo-snack {
+  color: var(--primary-color);
+  padding: 10px 10px 0 0;
+  margin-left: 30px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.mat-snack-bar-container .descripcion-mensaje {
+  color: #333333;
+  margin-left: 54px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  word-wrap: break-word;
+  width: 270px;
+}
+
+.error.mat-snack-bar-container::before {
+  content: '';
+  background-color: #911B28;
+  opacity: 1;
+  position: relative;
+  height: 100%;
+  width: 7px;
+  transition: all 200ms ease;
+
+}
+
+.error.mat-snack-bar-container .titulo-snack {
+  color: #CA0538;
+}
+
+.exito.mat-pxsnack-bar-container::before {
+  content: '';
+  background-color: #52AE32;
+  opacity: 1;
+
+}
+
+.exito.mat-snack-bar-container .titulo-snack {
+  color: #008D3F;
+}
+
+.alerta.mat-snack-bar-container::before {
+  content: '';
+  background-color: #ECB500;
+  opacity: 1;
+
+}
+
+.alerta.mat-snack-bar-container .titulo-snack {
+  color: #ECB500;
+}
+
+
+
+.icon-close {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E1E1E1;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-lighter-color);
+  opacity: 0.5;
+  //border: 0.2em solid var(--primary-darker-color);
+  border-radius: 100vw;
+}
+
+.mat-select-arrow-wrapper {
+  height: 16px;
+  flex-shrink: inherit !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  width: 50px;
+}
+
+.mat-paginator-page-size {
+  display: flex !important;
+  align-items: center !important;
+
+}
+
+.mat-dialog-actions.tabla-popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-top: none;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: none;
+}
+
+:host ::ng-deep .mat-sort-header-container {
+  display: flex;
+  justify-content: center;
+}
+
+footer{
+  background-color: #333333;
+}
+header{
+  background-color: main;
+  height: 64px;
+}
+
+.content-container{
+overflow-y: auto;
+scrollbar-color: red;
+}
+
+main {
+  background-color: #F3F7FA;
+  height: 100vh;
+}
+
+.router-container{
+padding-right: 20px;
+padding-bottom: 20px;
+}
+
+
