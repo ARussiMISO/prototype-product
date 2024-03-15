@@ -23,7 +23,7 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatMenuModule} from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import {MatTabsModule} from '@angular/material/tabs';
 const material = [
   CommonModule,
   MatToolbarModule,
@@ -51,7 +51,8 @@ const material = [
   MatMenuModule,
   HttpClientModule,
   MatRippleModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatTabsModule
 ];
 
 @NgModule({
