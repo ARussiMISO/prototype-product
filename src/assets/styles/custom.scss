@@ -430,8 +430,10 @@ input:focus-visible {
 .input-entrada.ng-invalid,
 input.ng-invalid,
 .input-entrada-simple.ng-invalid {
-  height: 31px;
-  outline: 1px solid #741018;
+  &:not(.ng-untouched) {
+    height: 31px;
+    outline: 1px solid #741018;
+  }
 
 }
 

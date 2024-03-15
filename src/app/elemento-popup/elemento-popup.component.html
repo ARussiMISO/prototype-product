@@ -28,7 +28,7 @@
               *ngIf="form.get('alto')?.touched && form.get('alto')?.invalid && form.get('alto')?.errors?.['required']">
               Campo obligatorio</p>
             <p class="p-warn-required"
-              *ngIf="form.get('alto')?.touched && form.get('alto')?.invalid && (form.get('alto')?.errors?.['max'] || form.get('alto')?.errors?.['min'] )">
+              *ngIf="form.get('alto')?.dirty && form.get('alto')?.invalid && (form.get('alto')?.errors?.['max'] || form.get('alto')?.errors?.['min'] )">
               Número entre 1 y 300</p>
           </div>
           <br />
@@ -39,7 +39,7 @@
               *ngIf="form.get('ancho')?.touched && form.get('ancho')?.invalid && form.get('ancho')?.errors?.['required']">
               Campo obligatorio</p>
             <p class="p-warn-required"
-              *ngIf="form.get('ancho')?.touched && form.get('ancho')?.invalid && (form.get('ancho')?.errors?.['max'] || form.get('ancho')?.errors?.['min'] )">
+              *ngIf="form.get('ancho')?.dirty && form.get('ancho')?.invalid && (form.get('ancho')?.errors?.['max'] || form.get('ancho')?.errors?.['min'] )">
               Número entre 1 y 300</p>
           </div>
           <br />
@@ -51,7 +51,7 @@
               *ngIf="form.get('profundidad')?.touched && form.get('profundidad')?.invalid && form.get('profundidad')?.errors?.['required']">
               Campo obligatorio</p>
             <p class="p-warn-required"
-              *ngIf="form.get('profundidad')?.touched && form.get('profundidad')?.invalid && (form.get('profundidad')?.errors?.['max'] || form.get('profundidad')?.errors?.['min'] )">
+              *ngIf="form.get('profundidad')?.dirty && form.get('profundidad')?.invalid && (form.get('profundidad')?.errors?.['max'] || form.get('profundidad')?.errors?.['min'] )">
               Número entre 1 y 300</p>
           </div>
           <br />
@@ -63,7 +63,7 @@
               *ngIf="form.get('cantidad')?.touched && form.get('cantidad')?.invalid && form.get('cantidad')?.errors?.['required']">
               Campo obligatorio</p>
             <p class="p-warn-required"
-              *ngIf="form.get('cantidad')?.touched && form.get('cantidad')?.invalid && (form.get('cantidad')?.errors?.['max'] || form.get('cantidad')?.errors?.['min'] )">
+              *ngIf="form.get('cantidad')?.dirty && form.get('cantidad')?.invalid && (form.get('cantidad')?.errors?.['max'] || form.get('cantidad')?.errors?.['min'] )">
               Número entre 1 y 300</p>
           </div>
         </div>

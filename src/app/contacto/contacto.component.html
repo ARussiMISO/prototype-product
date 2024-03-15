@@ -1,1 +1,67 @@
-<p>contacto works!</p>
+<form [formGroup]="form">
+  <div fxLayout="column" class="container-inputs">
+    <h1>Contacto</h1>
+    <div fxLayout="row" fxLayoutAlign="space-between none">
+      <div fxLayout="column">
+        <label class="label-input" for="nombres">Nombres</label>
+        <input class="input-entrada-simple" id="nombres" name="nombres" type="text" formControlName="nombres">
+        <div class="input-invalid">
+          <p class="p-warn-required"
+            *ngIf="form.get('nombres')?.touched && form.get('nombres')?.invalid && form.get('nombres')?.errors?.['required']">
+            Campo obligatorio</p>
+        </div>
+      </div>
+      <div fxLayout="column">
+        <label class="label-input" for="apellidos">Apellidos</label>
+        <input class="input-entrada-simple" id="apellidos" name="apellidos" type="text" formControlName="apellidos">
+        <div class="input-invalid">
+          <p class="p-warn-required"
+            *ngIf="form.get('apellidos')?.touched && form.get('apellidos')?.invalid && form.get('apellidos')?.errors?.['required']">
+            Campo obligatorio</p>
+        </div>
+      </div>
+      <div fxLayout="column">
+        <label class="label-input" for="celular">Celular</label>
+        <input class="input-entrada-simple" id="celular" name="celular" type="text" formControlName="celular">
+        <div class="input-invalid">
+          <p class="p-warn-required"
+            *ngIf="form.get('celular')?.touched && form.get('celular')?.invalid && form.get('celular')?.errors?.['required']">
+            Campo obligatorio</p>
+          <p class="p-warn-required"
+            *ngIf="form.get('celular')?.dirty && form.get('celular')?.invalid && !form.get('celular')?.errors?.['pattern'] && (form.get('celular')?.errors?.['maxlength'] || form.get('celular')?.errors?.['minlength'])">
+            Longitud de 10 números</p>
+          <p class="p-warn-required"
+            *ngIf="form.get('celular')?.dirty && form.get('celular')?.invalid && !(form.get('celular')?.errors?.['max'] || form.get('celular')?.errors?.['min']) && form.get('celular')?.errors?.['pattern']">
+            Sólo números</p>
+        </div>
+      </div>
+      <div fxLayout="column">
+        <label class="label-input" for="email">Email</label>
+        <input class="input-entrada-simple" id="email" name="email" type="text" formControlName="email">
+        <div class="input-invalid">
+          <p class="p-warn-required"
+            *ngIf="form.get('email')?.touched && form.get('email')?.invalid && form.get('email')?.errors?.['required']">
+            Campo obligatorio</p>
+          <p class="p-warn-required"
+            *ngIf="form.get('email')?.dirty && form.get('email')?.invalid && form.get('email')?.errors?.['email']">
+            Email no válido</p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column">
+      <label class="label-input" for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" type="text" formControlName="mensaje"></textarea>
+      <div class="input-invalid">
+        <p class="p-warn-required"
+          *ngIf="( form.get('mensaje')?.dirty) && form.get('mensaje')?.errors?.['maxlength']">
+          Máximo 500 caracteres.</p>
+
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <button class="submit-button button-warn" (click)="guardarDatos()">
+        Enviar
+      </button>
+    </div>
+  </div>
+</form>
