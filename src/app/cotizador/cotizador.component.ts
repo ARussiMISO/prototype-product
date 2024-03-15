@@ -5,7 +5,10 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ConfiguracionPaginacion } from 'src/shared/paginator';
 import { ElementoPopupComponent } from '../elemento-popup/elemento-popup.component';
-
+import { ToastrService } from 'ngx-toastr';
+const CARRY = 3;
+const TURBO = 15;
+const CAMION = 37;
 @Component({
   selector: 'app-cotizador',
   templateUrl: './cotizador.component.html',
@@ -19,7 +22,7 @@ export class CotizadorComponent implements OnInit {
   dataSource = new MatTableDataSource<Elemento>([]);
   displayedColumns: string[] = ['tipo', 'alto', 'ancho', 'profundidad', 'cantidad', 'accion'];
   elementos: Elemento[] = [];
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private toastrservice: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -64,7 +67,24 @@ export class CotizadorComponent implements OnInit {
   }
 
   cotizar() {
-    //TODO
+    let volumenCm3 = 0;
+    this.elementos.forEach(element => {
+      volumenCm3 += (element.alto! * element.ancho! * element.profundidad! * element.cantidad!);
+    });
+
+    let volumenM3 = volumenCm3 / 1000000
+    console.log(this.elementos);
+    console.log("Cm3 totales: " + volumenCm3);
+    console.log("m3 totales: " + volumenM3);
+    if (volumenM3 <= CARRY)
+      this.toastrservice.info("El costo estimado del servicio inicia desde $50.000. Ten en cuenta otros factores como trayecto, fecha, hora, distancia cargue/descargue afectan el precio real.")
+    else if (volumenM3 > CARRY && volumenM3 <= TURBO)
+      this.toastrservice.info("El costo estimado del servicio inicia desde $200.000. Ten en cuenta otros factores como trayecto, fecha, hora, distancia cargue/descargue afectan el precio real.")
+    else if (volumenM3 > TURBO && volumenM3 <= CAMION)
+      this.toastrservice.info("El costo estimado del servicio inicia desde $400.000. Ten en cuenta otros factores como trayecto, fecha, hora, distancia cargue/descargue afectan el precio real.")
+    else this.toastrservice.error("El cubicaje estimado excede la capacidad de los vehiculos disponibles, por favor ponte en contacto con nosotros para ofrecerte opciones personalizadas.")
+
+
 
   }
 
