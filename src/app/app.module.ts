@@ -12,6 +12,7 @@ import { InformacionComponent } from './informacion/informacion.component';
 import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-encontrada.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ElementoPopupComponent } from './elemento-popup/elemento-popup.component';
+import { BuscadorServicioComponent } from './buscador-servicio/buscador-servicio.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ElementoPopupComponent } from './elemento-popup/elemento-popup.componen
     CotizadorComponent,
     InformacionComponent,
     PaginaNoEncontradaComponent,
-    ElementoPopupComponent
+    ElementoPopupComponent,
+    BuscadorServicioComponent
   ],
   imports: [
     BrowserModule,

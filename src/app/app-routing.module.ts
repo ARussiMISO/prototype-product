@@ -6,6 +6,7 @@ import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-en
 import { CotizadorComponent } from './cotizador/cotizador.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { BuscadorServicioComponent } from './buscador-servicio/buscador-servicio.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'contacto',
     component: ContactoComponent,
+  },
+  {
+    path: 'buscador',
+    component: BuscadorServicioComponent,
   },
   {
     path: '',

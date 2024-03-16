@@ -1,0 +1,17 @@
+img{
+  width: 200px;
+}
+
+mat-icon{
+  padding: 3px;
+  color: #444657;
+  background-color: #D5DBE4;
+  border-radius: 50%;
+  cursor: pointer;
+
+}
+
+mat-icon:hover{
+  color: #003E6C;
+}
+

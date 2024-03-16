@@ -1,0 +1,95 @@
+<div fxLayout="column" class="container-inputs" fxLayoutAlign="center none">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <h2>Buscador de servicios</h2>
+    <p> Por medio de nuestro buscador podrás encontrar prestadores de servicios de mudanza con las características que
+      más
+      se ajusten a tus necesidades. Adicionalmente puedes contactar, establecer las condiciones y revisar las reseñas de
+      cada uno.</p>
+    <br />
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <input class="input-simple" id="nombre" (keyup)="nombreFiltro($event)" placeholder="Nombre">
+      &nbsp;&nbsp;
+      <select (change)="tipoVehiculoFiltro($event)">
+        <option value="" selected>Tipo de vehiculo</option>
+        <option [value]="option" *ngFor="let option of vehiculos">{{ option }}</option>
+      </select>
+      &nbsp;&nbsp;
+      <input class="input-simple" type="number" (keyup)="experienciaFiltro($event)" id="experiencia"
+        placeholder="Experiencia">
+      &nbsp;&nbsp;
+      <select (change)="calificacionFiltro($event)">
+        <option value="" selected>Calificación</option>
+        <option [value]="option.key" *ngFor="let option of rating | keyvalue">{{ option.value }}</option>
+      </select>
+
+
+    </div>
+  </div>
+
+
+  <br />
+  <div fxLayout="column" fxLayoutAlign="space-around none" class="container-inputs" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort
+      aria-describedby="Tabla que muestra las transacciones disponibles">
+      <ng-container matColumnDef="imagen">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Perfil
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          <img [src]="elemento.imagen">
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Nombre
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          {{ elemento.nombre }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="tipoVehiculo">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Tipo de vehiculo
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          {{ elemento.tipoVehiculo }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="experiencia">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Experiencia
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          {{ elemento.experiencia }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="calificacion">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Calificación
+        </th>
+        <td mat-cell *matCellDef="let elemento">
+          {{ elemento.calificacion }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="accion">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let elemento">
+          <a><mat-icon matTooltip="Detalle" matTooltipPosition="above"
+              (click)="verDetalle(elemento)">remove_red_eye</mat-icon></a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr *matNoDataRow>
+        <td class="mat-cell" colspan="6">
+          No hay datos.
+        </td>
+      </tr>
+    </table>
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+      aria-label="Selector de páginas de elementos">
+    </mat-paginator>
+  </div>
+</div>
