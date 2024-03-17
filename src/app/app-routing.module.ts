@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'bienvenida',
+    redirectTo: 'paginaNoEncontrada',
     pathMatch: 'full'
   }
 ];
